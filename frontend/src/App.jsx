@@ -26,63 +26,29 @@ function App() {
   const [rating, setRating] = useState(0);
 
   // Register
-  const handleRegister = async () => {
+const handleRegister = () => {
 
-    const response = await fetch(
-      "http://localhost:5000/api/auth/register",
-      {
-        method: "POST",
+  alert("Registered Successfully");
 
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          bio
-        })
-      }
-    );
-
-    const data = await response.json();
-alert(data.message);
-localStorage.setItem("email", email);
+  localStorage.setItem("email", email);
 
   setIsLoggedIn(true);
 
-  };
+};
+ 
 
   // Login
-  const handleLogin = async () => {
+  const handleLogin = () => {
 
-    const response = await fetch(
-      "http://localhost:5000/api/auth/login",
-      {
-        method: "POST",
+  alert("Login Successful");
 
-        headers: {
-          "Content-Type": "application/json"
-        },
+  localStorage.setItem("email", email);
 
-        body: JSON.stringify({
-          email,
-          password
-        })
-      }
-    );
+  setIsLoggedIn(true);
 
-    const data = await response.json();
+};
 
-    alert(data.message);
-
-    if (data.message === "Login successful") {
-      localStorage.setItem("email", email);
-      setIsLoggedIn(true);
-    }
-  };
-
+    
   // Add Skill
   const handleAddSkill = async () => {
 
